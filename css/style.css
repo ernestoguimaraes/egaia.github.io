@@ -19,30 +19,47 @@ body {
 }
 
 header {
-  padding: 2rem 0 1rem 0;
+  padding: 0;
   text-align: center;
   background: var(--primary);
   color: white;
   letter-spacing: 2px;
   font-size: 2.2rem;
   font-weight: 600;
-  border-bottom: 2px solid var(--accent);
+  border-bottom: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.2rem;
+  align-items: stretch;
   position: relative;
+  overflow: hidden;
 }
 
 .header-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  width: 100%;
+  height: 220px;
+  max-height: 35vw;
+  min-height: 120px;
   object-fit: cover;
-  box-shadow: 0 4px 24px 0 #ffb34744;
-  border: 4px solid var(--background);
+  /*border-radius: 0 0 2.5rem 2.5rem;*/
+  box-shadow: none;
+  border: none;
   background: var(--secondary);
-  margin-bottom: 0.5rem;
+  margin: 0;
+  display: block;
+}
+
+header > div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1.2rem;
+  text-align: center;
+  color: white;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 12px #3e272355;
+  z-index: 2;
 }
 
 nav {
@@ -106,6 +123,38 @@ h2 {
   background: var(--primary);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap');
+
+.site-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: white;
+  text-shadow: 0 2px 12px #3e272355;
+  margin: 0;
+  line-height: 1.1;
+  display: inline-block;
+}
+.site-title .gaia {
+  color: var(--accent);
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0 0.2em;
+  vertical-align: middle;
+}
+.site-title-side {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: white;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+  vertical-align: middle;
+}
 @media (max-width: 700px) {
   section {
     margin: 1rem;
@@ -118,7 +167,22 @@ h2 {
     gap: 1rem;
   }
   .header-image {
-    width: 80px;
-    height: 80px;
+    height: 90px;
+    min-height: 60px;
+    max-height: 20vw;
+    border-radius: 0 0 1.2rem 1.2rem;
+  }
+  header > div {
+    font-size: 1.3rem;
+    bottom: 0.5rem;
+  }
+  .site-title {
+    font-size: 0.9rem;
+  }
+  .site-title .gaia {
+    font-size: 1.2rem;
+  }
+  .site-title-side {
+    font-size: 0.9rem;
   }
 }
