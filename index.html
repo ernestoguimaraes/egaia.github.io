@@ -1,7 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimalist Warm Landing Page</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <div id="app">
+    <header>
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=400&q=80" alt="Header Image" class="header-image">
+      <div>Minimalist Warm Landing</div>
+    </header>
+    <nav>
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#whoami" class="nav-link">Who Am I</a>
+      <a href="#newsletter" class="nav-link">Newsletter</a>
+    </nav>
+    <section id="home">
+      <h2>Home</h2>
+      <p>Welcome to a warm, minimalist landing page. Experience elegance in simplicity.</p>
+    </section>
+    <section id="whoami">
+      <h2>Who Am I</h2>
+      <p>Hello! I'm a passionate creator who values clarity, warmth, and elegance in design. My mission is to craft beautiful digital experiences that feel inviting and effortless.</p>
+    </section>
+    <section id="newsletter">
+      <h2>Newsletter</h2>
+      <form class="newsletter-form" @submit.prevent="subscribe">
+        <input type="email" v-model="email" placeholder="Your email address" required>
+        <button type="submit" v-if="!subscribed">Subscribe</button>
+        <div v-if="error" style="color: var(--accent); font-size: 0.95rem;">{{ error }}</div>
+        <div v-if="subscribed" style="color: var(--primary); font-size: 1.1rem;">Thank you for subscribing!</div>
+      </form>
+    </section>
+  </div>
+  <script src="js/app.js"></script>
+  <script>
+    // Fallback for smooth scroll in older browsers
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
